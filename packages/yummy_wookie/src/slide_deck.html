@@ -1,0 +1,32 @@
+<dom-module id="slide-deck">
+    <template>
+        <style is="custom-style">
+            #cards {
+                width: 100%;
+                height: 100%;
+            }
+            slide-card {
+                padding: 10px;
+                margin: 5px;
+                width: 90%;
+            }
+        </style>
+        <div id="cards" class="layout vertical flex center">
+
+            <slide-card heading="Card 0" hidden>
+                <div class="content">Hello World</div>
+            </slide-card>
+            <slide-card heading="Card 1" hidden>
+                <div class="content">Hello World</div>
+            </slide-card>
+
+            <slide-card heading="Card 2" hidden>
+                <div class="content">Hello World</div>
+            </slide-card>
+
+            <slide-card heading="Card 3" hidden>
+                <div class="content">Hello World</div>
+            </slide-card>
+        </div>
+    </template>
+</dom-module>
