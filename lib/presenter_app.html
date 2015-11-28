@@ -14,11 +14,11 @@
             <paper-toolbar>
                 <div>Dart Slides - Presenter</div>
             </paper-toolbar>
+            <div class="fit layout horizontal">
+                <paper-fab icon="arrow-back" id="back"></paper-fab>
+                <slide-deck presenter id="deck" class="flex"></slide-deck>
+                <paper-fab icon="arrow-forward" id="forward"></paper-fab>
+            </div>
         </paper-header-panel>
-        <div class="flex layout horizontal">
-            <paper-fab icon="arrow-back" id="back"></paper-fab>
-            <slide-deck presenter id="deck" class="flex"></slide-deck>
-            <paper-fab icon="arrow-forward" id="forward"></paper-fab>
-        </div>
     </template>
 </dom-module>
