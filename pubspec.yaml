@@ -12,6 +12,8 @@ transformers:
 - web_components:
     entry_points:
       - web/index.html
+      - web/presenter.html
 - reflectable:
     entry_points:
       - web/index.dart
+      - web/presenter.dart
