@@ -28,7 +28,7 @@ class PresenterApp extends PolymerElement {
   int currentPage = 0;
 
   PresenterApp.created() : super.created() {
-    link = new LinkProvider('http://10.0.1.155:8080/conn', 'YummyWookie-',
+    link = new LinkProvider('http://rnd.iot-dsa.org/conn', 'YummyWookie-',
         isResponder: false);
     initConnection();
   }

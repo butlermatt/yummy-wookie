@@ -20,7 +20,7 @@ class MainApp extends PolymerElement {
   int currentPage = 0;
 
   MainApp.created() : super.created() {
-    link = new LinkProvider('http://10.0.1.155:8080/conn', 'YummyViewer-',
+    link = new LinkProvider('http://rnd.iot-dsa.org/conn', 'YummyViewer-',
       isResponder: false, isRequester: true);
     initConnection();
   }
