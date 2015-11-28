@@ -10,21 +10,30 @@
                 margin: 5px;
                 width: 90%;
             }
+
+            div.content {
+                padding: 10px;
+            }
         </style>
         <div id="cards" class="layout vertical flex center">
 
-            <slide-card heading="Card 0" hidden>
-                <div class="content">Hello World</div>
+            <slide-card heading="Welcome" hidden presenter="{{presenter}}">
+                <div class="content">http://butlermatt.github.io/yummy-wookie</div>
+                <div class="presenter-content">
+                    <ul>
+                        <li>Advise users to go to the displayed URL</li>
+                    </ul>
+                </div>
             </slide-card>
-            <slide-card heading="Card 1" hidden>
+            <slide-card heading="Card 1" hidden presenter="{{presenter}}">
                 <div class="content">Hello World</div>
             </slide-card>
 
-            <slide-card heading="Card 2" hidden>
+            <slide-card heading="Card 2" hidden presenter="{{presenter}}">
                 <div class="content">Hello World</div>
             </slide-card>
 
-            <slide-card heading="Card 3" hidden>
+            <slide-card heading="Card 3" hidden presenter="{{presenter}}">
                 <div class="content">Hello World</div>
             </slide-card>
         </div>

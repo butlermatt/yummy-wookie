@@ -8,7 +8,12 @@
 
         </style>
         <paper-card heading="{{heading}}">
-            <content select=".content" class="card-content"></content>
+            <template is="dom-if" if="{{!presenter}}">
+                <content select=".content" class="card-content"></content>
+            </template>
+            <template is="dom-if" if="{{presenter}}">
+                <content select=".presenter-content"></content>
+            </template>
         </paper-card>
     </template>
 </dom-module>

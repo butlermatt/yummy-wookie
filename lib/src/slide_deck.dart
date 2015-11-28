@@ -9,7 +9,7 @@ import 'slide_card.dart';
 @PolymerRegister('slide-deck')
 class SlideDeck extends PolymerElement {
   @property
-  bool presenter;
+  bool presenter = false;
 
   int page = 0;
   List<SlideCard> cardList;

@@ -10,6 +10,8 @@ import 'package:polymer_elements/paper_card.dart';
 class SlideCard extends PolymerElement {
   @property
   String heading;
+  @property
+  bool presenter;
 
   SlideCard.created() : super.created();
 
