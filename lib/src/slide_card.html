@@ -4,10 +4,11 @@
             paper-card {
                 width: 98%;
                 height: 98%;
+                --paper-card-header-color: var(--paper-blue-700);
             }
 
         </style>
-        <paper-card heading="{{heading}}">
+        <paper-card heading="{{heading}}" class="flex layout vertical">
             <template is="dom-if" if="{{!presenter}}">
                 <content select=".content" class="card-content"></content>
             </template>
