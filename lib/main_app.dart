@@ -41,5 +41,6 @@ class MainApp extends PolymerElement {
   void pageUpdated(ValueUpdate update) {
     currentPage = update.value;
     print('Page updated: $currentPage');
+    deck.changePage(currentPage);
   }
 }

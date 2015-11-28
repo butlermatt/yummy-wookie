@@ -15,8 +15,11 @@
                 <div>Dart Slides - Presenter</div>
             </paper-toolbar>
         </paper-header-panel>
-        <slide-deck presenter id="deck">
-
+        <div class="flex layout horizontal">
+        <paper-fab icon="arrow-back" id="back"></paper-fab>
+        <slide-deck presenter id="deck" class="flex">
         </slide-deck>
+        <paper-fab icon="arrow-forward" id="forward"></paper-fab>
+        </div>
     </template>
 </dom-module>

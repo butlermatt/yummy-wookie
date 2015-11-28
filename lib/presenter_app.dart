@@ -10,6 +10,8 @@ import 'package:dslink/browser.dart';
 
 import 'package:polymer_elements/paper_header_panel.dart';
 import 'package:polymer_elements/paper_toolbar.dart';
+import 'package:polymer_elements/paper_fab.dart';
+import 'package:polymer_elements/iron_icons.dart';
 
 import 'src/slide_deck.dart';
 
@@ -17,6 +19,8 @@ import 'src/slide_deck.dart';
 class PresenterApp extends PolymerElement {
   static const path = '/data/YummyWookie/page';
 
+  PaperFab fabForward;
+  PaperFab fabBack;
   SlideDeck deck;
   LinkProvider link;
   Requester req;
@@ -33,10 +37,22 @@ class PresenterApp extends PolymerElement {
     await link.connect();
     req = await link.onRequesterReady;
     req.set(path, currentPage);
+    req.subscribe(path, pathUpdated);
+  }
+
+  @reflectable
+  void pathUpdated(ValueUpdate update) {
+    var page = update.value;
+    deck.changePage(page);
   }
 
   @reflectable
   void ready() {
     deck = $['deck'];
+    fabForward = $['forward'];
+    fabBack = $['back'];
+    fabForward.on['tap'].listen((Event e) {
+      req.set(path, ++currentPage);
+    });
   }
 }
