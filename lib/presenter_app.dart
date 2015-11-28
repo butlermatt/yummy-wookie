@@ -18,6 +18,7 @@ import 'src/slide_deck.dart';
 @PolymerRegister('presenter-app')
 class PresenterApp extends PolymerElement {
   static const path = '/data/YummyWookie/page';
+  static const tapPath = '/data/YummyWookie/tap';
 
   PaperFab fabForward;
   PaperFab fabBack;
@@ -26,6 +27,8 @@ class PresenterApp extends PolymerElement {
   Requester req;
   LocalNode node;
   int currentPage = 0;
+
+  int tappedNum = 0;
 
   PresenterApp.created() : super.created() {
     link = new LinkProvider('http://rnd.iot-dsa.org/conn', 'YummyWookie-',
@@ -38,12 +41,26 @@ class PresenterApp extends PolymerElement {
     req = await link.onRequesterReady;
     req.set(path, currentPage);
     req.subscribe(path, pathUpdated);
+    req.subscribe(tapPath, cardTap);
   }
 
   @reflectable
   void pathUpdated(ValueUpdate update) {
     var page = update.value;
+    tappedNum = 0;
     deck.changePage(page);
+  }
+
+  @reflectable
+  void cardTap(ValueUpdate update) {
+    var tapNum = update.value;
+    print('Card Tapped - page: $currentPage Tap#: $tapNum');
+    deck.cardTapped(currentPage, tapNum);
+  }
+
+  @reflectable
+  void onCardTap(e, [_]) {
+    req.set(tapPath, ++tappedNum);
   }
 
   @reflectable

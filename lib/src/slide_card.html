@@ -8,7 +8,7 @@
             }
 
         </style>
-        <paper-card heading="{{heading}}" class="flex layout vertical">
+        <paper-card heading="{{heading}}" class="flex layout vertical" on-tap="tapped">
             <template is="dom-if" if="{{!presenter}}">
                 <content select=".content" class="card-content"></content>
             </template>

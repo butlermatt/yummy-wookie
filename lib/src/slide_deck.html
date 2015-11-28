@@ -15,7 +15,7 @@
                 padding: 10px;
             }
 
-            #suck {
+            .red {
                 color: var(--paper-red-500);
             }
         </style>
@@ -46,15 +46,21 @@
 
             <slide-card heading="The Problem" hidden presenter="{{presenter}}">
                 <div class="content layout vertical center">
-                    <h1 id="suck">Slides Suck!</h1>
+                    <h1 class="red">Slides Suck!</h1>
                 </div>
             </slide-card>
 
             <slide-card heading="The Solution" hidden presenter="{{presenter}}">
-                <div class="content layout vertical center">
+                <div class="content layout vertical center red">
                     <h1>Yummy Wookie</h1>
                     <h3>(Working Title)</h3>
                 </div>
+            </slide-card>
+
+            <slide-card heading="Benefits" hidden presenter="{{presenter}}">
+            <div class="content layout vertical center">
+                <ul id="benList"></ul>
+            </div>
             </slide-card>
         </div>
     </template>

@@ -1,6 +1,8 @@
 @HtmlImport('slide_deck.html')
 library dart_slides.slide.deck;
 
+import 'dart:html';
+
 import 'package:polymer/polymer.dart';
 import 'package:web_components/web_components.dart';
 
@@ -15,6 +17,8 @@ class SlideDeck extends PolymerElement {
   List<SlideCard> cardList;
 
   SlideDeck.created() : super.created();
+
+  int benNum = 0;
 
   @override
   void ready() {
@@ -33,5 +37,27 @@ class SlideDeck extends PolymerElement {
       page = newPage;
     }
     cardList[page].hidden = false;
+  }
+
+  @reflectable
+  void cardTapped(int card, int tapNum) {
+    print('Card: $card was tapped $tapNum times');
+    switch(card) {
+      case 4:
+        benefitTap(tapNum);
+        break;
+      default:
+        break;
+    }
+  }
+
+  @reflectable
+  void benefitTap(int tapNum) {
+    var ul = Polymer.dom(cardList[page]).querySelector('#benList');
+    if (ul != null) {
+      var li = new LIElement();
+      li.text = 'Some Benefit';
+      ul.append(li);
+    }
   }
 }

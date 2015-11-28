@@ -14,6 +14,9 @@ import 'src/slide_deck.dart';
 
 @PolymerRegister('main-app')
 class MainApp extends PolymerElement {
+  static const path = '/data/YummyWookie/page';
+  static const tapPath = '/data/YummyWookie/tap';
+
   SlideDeck deck;
   LinkProvider link;
   Requester req;
@@ -34,7 +37,8 @@ class MainApp extends PolymerElement {
   Future initConnection() async {
     await link.connect();
     req = await link.onRequesterReady;
-    req.subscribe('/data/YummyWookie/page', pageUpdated);
+    req.subscribe(path, pageUpdated);
+    req.subscribe(tapPath, cardTap);
   }
 
   @reflectable
@@ -42,5 +46,12 @@ class MainApp extends PolymerElement {
     currentPage = update.value;
     print('Page updated: $currentPage');
     deck.changePage(currentPage);
+  }
+
+  @reflectable
+  void cardTap(ValueUpdate update) {
+    var tapNum = update.value;
+    print('Card Tapped - page: $currentPage Tap#: $tapNum');
+    deck.cardTapped(currentPage, tapNum);
   }
 }

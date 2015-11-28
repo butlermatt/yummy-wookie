@@ -15,4 +15,8 @@ class SlideCard extends PolymerElement {
 
   SlideCard.created() : super.created();
 
+  @reflectable
+  void tapped(e, [_]) {
+    fire('card-tap');
+  }
 }
