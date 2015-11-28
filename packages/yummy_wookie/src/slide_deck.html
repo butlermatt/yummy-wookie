@@ -10,22 +10,60 @@
                 margin: 5px;
                 width: 90%;
             }
+
+            div.content {
+                padding: 10px;
+            }
+
+            .red {
+                color: var(--paper-red-500);
+            }
         </style>
         <div id="cards" class="layout vertical flex center">
-
-            <slide-card heading="Card 0" hidden>
-                <div class="content">Hello World</div>
+            <slide-card heading="Welcome" hidden presenter="{{presenter}}">
+                <div class="content layout horizontal around-justified">
+                    <div class="self-center">Please Visit:</div>
+                    <h2>http://butlermatt.github.io/yummy-wookie</h2>
+                </div>
+                <div class="presenter-content">
+                    <ul>
+                        <li>Advise users to go to the displayed URL</li>
+                    </ul>
+                </div>
             </slide-card>
-            <slide-card heading="Card 1" hidden>
-                <div class="content">Hello World</div>
+            <slide-card heading="Introduction" hidden presenter="{{presenter}}">
+                <div class="content layout vertical center">
+                    <h2>Matthew Butler</h2>
+                    <h3>www.google.com/+MatthewButler</h3>
+                    <h3>http://github.com/butlermatt</h3>
+                </div>
+                <div class="presenter-content">
+                    <ul>
+                        <li>About me</li>
+                    </ul>
+                </div>
             </slide-card>
 
-            <slide-card heading="Card 2" hidden>
-                <div class="content">Hello World</div>
+            <slide-card heading="The Problem" hidden presenter="{{presenter}}">
+                <div class="content layout vertical center">
+                    <h1 class="red">Slides Suck!</h1>
+                </div>
             </slide-card>
 
-            <slide-card heading="Card 3" hidden>
-                <div class="content">Hello World</div>
+            <slide-card heading="The Solution" hidden presenter="{{presenter}}">
+                <div class="content layout vertical center red">
+                    <h1>Yummy Wookie</h1>
+                    <h3>(Working Title)</h3>
+                </div>
+            </slide-card>
+
+            <slide-card heading="Benefits" hidden presenter="{{presenter}}">
+                <div class="content layout vertical center">
+                    <ul id="benList"></ul>
+                </div>
+                <div class="presenter-content">
+                    Tap this card
+                </div>
             </slide-card>
         </div>
     </template>

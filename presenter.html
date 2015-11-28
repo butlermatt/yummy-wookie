@@ -1,7 +1,7 @@
 <!DOCTYPE html><html><head>
     <meta lang="en">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dart Slides - Presenter</title>
+    <title>Yummy Wookie - Presenter</title>
     <script defer="" src="packages/web_components/webcomponents-lite.min.js"></script>
     
     
@@ -12627,11 +12627,23 @@ Custom property | Description | Default
             paper-card {
                 width: 98%;
                 height: 98%;
+                --paper-card-header-color: var(--paper-blue-700);
+            }
+
+            .presenter {
+                background-color: var(--google-grey-300);
             }
 
         </style>
-        <paper-card heading="{{heading}}">
-            <content select=".content" class="card-content"></content>
+        <paper-card heading="{{heading}}" class="flex layout vertical" on-tap="tapped">
+            <!-- <template is="dom-if" if="{{!presenter}}"> -->
+                <content select=".content" class="card-content"></content>
+            <!-- </template> -->
+            <template is="dom-if" if="{{presenter}}">
+                <div class="presenter">
+                    <content select=".presenter-content"></content>
+                </div>
+            </template>
         </paper-card>
     </template>
 </dom-module><dom-module id="slide-deck">
@@ -12646,22 +12658,60 @@ Custom property | Description | Default
                 margin: 5px;
                 width: 90%;
             }
+
+            div.content {
+                padding: 10px;
+            }
+
+            .red {
+                color: var(--paper-red-500);
+            }
         </style>
         <div id="cards" class="layout vertical flex center">
-
-            <slide-card heading="Card 0" hidden="">
-                <div class="content">Hello World</div>
+            <slide-card heading="Welcome" hidden="" presenter="{{presenter}}">
+                <div class="content layout horizontal around-justified">
+                    <div class="self-center">Please Visit:</div>
+                    <h2>http://butlermatt.github.io/yummy-wookie</h2>
+                </div>
+                <div class="presenter-content">
+                    <ul>
+                        <li>Advise users to go to the displayed URL</li>
+                    </ul>
+                </div>
             </slide-card>
-            <slide-card heading="Card 1" hidden="">
-                <div class="content">Hello World</div>
+            <slide-card heading="Introduction" hidden="" presenter="{{presenter}}">
+                <div class="content layout vertical center">
+                    <h2>Matthew Butler</h2>
+                    <h3>www.google.com/+MatthewButler</h3>
+                    <h3>http://github.com/butlermatt</h3>
+                </div>
+                <div class="presenter-content">
+                    <ul>
+                        <li>About me</li>
+                    </ul>
+                </div>
             </slide-card>
 
-            <slide-card heading="Card 2" hidden="">
-                <div class="content">Hello World</div>
+            <slide-card heading="The Problem" hidden="" presenter="{{presenter}}">
+                <div class="content layout vertical center">
+                    <h1 class="red">Slides Suck!</h1>
+                </div>
             </slide-card>
 
-            <slide-card heading="Card 3" hidden="">
-                <div class="content">Hello World</div>
+            <slide-card heading="The Solution" hidden="" presenter="{{presenter}}">
+                <div class="content layout vertical center red">
+                    <h1>Yummy Wookie</h1>
+                    <h3>(Working Title)</h3>
+                </div>
+            </slide-card>
+
+            <slide-card heading="Benefits" hidden="" presenter="{{presenter}}">
+                <div class="content layout vertical center">
+                    <ul id="benList"></ul>
+                </div>
+                <div class="presenter-content">
+                    Tap this card
+                </div>
             </slide-card>
         </div>
     </template>
@@ -12679,21 +12729,21 @@ Custom property | Description | Default
 
         <paper-header-panel class="flex">
             <paper-toolbar>
-                <div>Dart Slides - Presenter</div>
+                <div>Yummy Wookie - Presenter</div>
             </paper-toolbar>
+            <div class="fit layout horizontal">
+                <paper-fab icon="arrow-back" id="back"></paper-fab>
+                <slide-deck presenter="" id="deck" class="flex" on-card-tap="onCardTap"></slide-deck>
+                <paper-fab icon="arrow-forward" id="forward"></paper-fab>
+            </div>
         </paper-header-panel>
-        <div class="flex layout horizontal">
-            <paper-fab icon="arrow-back" id="back"></paper-fab>
-            <slide-deck presenter="" id="deck" class="flex"></slide-deck>
-            <paper-fab icon="arrow-forward" id="forward"></paper-fab>
-        </div>
     </template>
 </dom-module><script defer="" src="presenter.bootstrap.initialize.dart" type="application/dart"></script><script defer="" src="packages/browser/dart.js"></script>
 
 
 
 </div>
-<presenter-app></presenter-app>
+<presenter-app class="flex"></presenter-app>
 
 
 </body></html>

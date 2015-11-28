@@ -4,11 +4,23 @@
             paper-card {
                 width: 98%;
                 height: 98%;
+                --paper-card-header-color: var(--paper-blue-700);
+            }
+
+            .presenter {
+                background-color: var(--google-grey-300);
             }
 
         </style>
-        <paper-card heading="{{heading}}">
-            <content select=".content" class="card-content"></content>
+        <paper-card heading="{{heading}}" class="flex layout vertical" on-tap="tapped">
+            <!-- <template is="dom-if" if="{{!presenter}}"> -->
+                <content select=".content" class="card-content"></content>
+            <!-- </template> -->
+            <template is="dom-if" if="{{presenter}}">
+                <div class="presenter">
+                    <content select=".presenter-content"></content>
+                </div>
+            </template>
         </paper-card>
     </template>
 </dom-module>
