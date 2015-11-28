@@ -54,5 +54,10 @@ class PresenterApp extends PolymerElement {
     fabForward.on['tap'].listen((Event e) {
       req.set(path, ++currentPage);
     });
+    fabBack.on['tap'].listen((Event e) {
+      --currentPage;
+      currentPage = (currentPage < 0 ? 0 : currentPage);
+      req.set(path, currentPage);
+    });
   }
 }

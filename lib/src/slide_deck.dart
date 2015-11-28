@@ -25,7 +25,7 @@ class SlideDeck extends PolymerElement {
   void changePage(int newPage) {
     cardList[page].hidden = true;
 
-    if (newPage > cardList.length) {
+    if (newPage > (cardList.length - 1)) {
       page = cardList.length - 1;
     } else if (newPage < 0) {
       page = 0;
