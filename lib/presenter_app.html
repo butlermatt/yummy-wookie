@@ -1,9 +1,22 @@
 <dom-module id="presenter-app">
     <template>
+        <style is="custom-style">
+            paper-fab {
+                --paper-fab-background: var(--paper-red-500);
+            }
+
+            paper-fab#back {
+                --paper-fab-background: var(--paper-orange-500);
+            }
+        </style>
+
         <paper-header-panel class="flex">
             <paper-toolbar>
                 <div>Dart Slides - Presenter</div>
             </paper-toolbar>
         </paper-header-panel>
+        <slide-deck presenter id="deck">
+
+        </slide-deck>
     </template>
 </dom-module>

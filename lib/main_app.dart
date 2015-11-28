@@ -10,8 +10,11 @@ import 'package:dslink/browser.dart';
 import 'package:polymer_elements/paper_header_panel.dart';
 import 'package:polymer_elements/paper_toolbar.dart';
 
+import 'src/slide_deck.dart';
+
 @PolymerRegister('main-app')
 class MainApp extends PolymerElement {
+  SlideDeck deck;
   LinkProvider link;
   Requester req;
   int currentPage = 0;
@@ -22,11 +25,16 @@ class MainApp extends PolymerElement {
     initConnection();
   }
 
+  @override
+  void ready() {
+    deck = $['deck'];
+  }
+
   @reflectable
   Future initConnection() async {
     await link.connect();
     req = await link.onRequesterReady;
-    req.subscribe('/downstream/YummyWookie/page', pageUpdated);
+    req.subscribe('/data/YummyWookie/page', pageUpdated);
   }
 
   @reflectable
