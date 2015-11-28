@@ -41,7 +41,6 @@ class SlideDeck extends PolymerElement {
 
   @reflectable
   void cardTapped(int card, int tapNum) {
-    print('Card: $card was tapped $tapNum times');
     switch(card) {
       case 4:
         benefitTap(tapNum);
@@ -54,10 +53,21 @@ class SlideDeck extends PolymerElement {
   @reflectable
   void benefitTap(int tapNum) {
     var ul = Polymer.dom(cardList[page]).querySelector('#benList');
-    if (ul != null) {
-      var li = new LIElement();
-      li.text = 'Some Benefit';
-      ul.append(li);
+    if (ul == null) return;
+
+    ++benNum;
+    var text = '';
+    switch (benNum) {
+      case 1:
+        text = 'Greater Participation';
+        break;
+      case 2:
+        text = 'Greater Customization';
+        break;
+      default: return;
     }
+    var li = new LIElement();
+    li.text = text;
+    ul.append(li);
   }
 }

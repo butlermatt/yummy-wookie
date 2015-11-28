@@ -44,14 +44,12 @@ class MainApp extends PolymerElement {
   @reflectable
   void pageUpdated(ValueUpdate update) {
     currentPage = update.value;
-    print('Page updated: $currentPage');
     deck.changePage(currentPage);
   }
 
   @reflectable
   void cardTap(ValueUpdate update) {
     var tapNum = update.value;
-    print('Card Tapped - page: $currentPage Tap#: $tapNum');
     deck.cardTapped(currentPage, tapNum);
   }
 }

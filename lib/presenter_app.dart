@@ -54,7 +54,6 @@ class PresenterApp extends PolymerElement {
   @reflectable
   void cardTap(ValueUpdate update) {
     var tapNum = update.value;
-    print('Card Tapped - page: $currentPage Tap#: $tapNum');
     deck.cardTapped(currentPage, tapNum);
   }
 
