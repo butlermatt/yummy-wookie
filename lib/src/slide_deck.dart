@@ -3,24 +3,35 @@ library dart_slides.slide.deck;
 
 import 'package:polymer/polymer.dart';
 import 'package:web_components/web_components.dart';
-import 'package:polymer_elements/paper_card.dart';
+
+import 'slide_card.dart';
 
 @PolymerRegister('slide-deck')
 class SlideDeck extends PolymerElement {
   @property
   bool presenter;
-  @property
+
   int page = 0;
+  List<SlideCard> cardList;
 
   SlideDeck.created() : super.created();
 
   @override
   void ready() {
-
+    cardList = Polymer.dom($['cards']).querySelectorAll('slide-card');
   }
 
   @reflectable
   void changePage(int newPage) {
-    notifyPath('page', newPage);
+    cardList[page].hidden = true;
+
+    if (newPage > cardList.length) {
+      page = cardList.length - 1;
+    } else if (newPage < 0) {
+      page = 0;
+    } else {
+      page = newPage;
+    }
+    cardList[page].hidden = false;
   }
 }
