@@ -48,6 +48,7 @@ class PresenterApp extends PolymerElement {
   void pathUpdated(ValueUpdate update) {
     var page = update.value;
     tappedNum = 0;
+    currentPage = page;
     deck.changePage(page);
   }
 

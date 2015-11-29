@@ -42,7 +42,7 @@ class SlideDeck extends PolymerElement {
   @reflectable
   void cardTapped(int card, int tapNum) {
     var el = Polymer.dom(cardList[card]).querySelector('[hidden]');
-    el.hidden = false;
+    el?.hidden = false;
   }
 
 }
