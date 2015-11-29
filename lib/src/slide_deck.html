@@ -18,12 +18,25 @@
             .red {
                 color: var(--paper-red-500);
             }
+
+            .large {
+                font-size: 18pt;
+            }
+
+            pre {
+                font-family: "Roboto Mono";
+            }
+
         </style>
         <div id="cards" class="layout vertical flex center">
             <slide-card heading="Welcome" hidden presenter="{{presenter}}">
-                <div class="content layout horizontal around-justified wrap">
-                    <div class="self-center">Please Visit:</div>
-                    <h2>http://butlermatt.github.io/yummy-wookie</h2>
+                <div class="content layout vertical around-justified wrap">
+                    <div class="layout horizontal around-justified wrap">
+                        <div class="self-center">Please Visit:</div>
+                        <h2>http://butlermatt.github.io/yummy-wookie</h2>
+                    </div>
+                    <img src="https://zxing.org/w/chart?cht=qr&chs=350x350&chld=L&choe=UTF-8&chl=http%3A%2F%2Fbutlermatt.github.io%2Fyummy-wookie"
+                         height="350" width="350" class="self-center">
                 </div>
                 <div class="presenter-content">
                     <ul>
@@ -54,15 +67,45 @@
                 <div class="content layout vertical center red">
                     <h1>Yummy Wookie</h1>
                     <h3>(Working Title)</h3>
+                    <h4 id="blame" hidden>Blame Github</h4>
+                </div>
+                <div class="presenter-content">
+                    Tap this card
+                    <ul>
+                        <li>Mention Github suggested the name</li>
+                    </ul>
                 </div>
             </slide-card>
 
             <slide-card heading="Benefits" hidden presenter="{{presenter}}">
                 <div class="content layout vertical center">
-                    <ul id="benList"></ul>
+                    <h2>What does Yummy Wookie enable?</h2>
+                    <ul id="benList">
+                        <li hidden>Greater Participation</li>
+                        <li hidden>Greater Customization</li>
+                    </ul>
                 </div>
                 <div class="presenter-content">
                     Tap this card
+                </div>
+            </slide-card>
+
+            <slide-card heading="Usage" hidden presenter="{{presenter}}">
+                <div class="content layout vertical center">
+                    <h2>So what does it look like?</h2>
+                    <pre id="sample" class="large flex self-start" hidden>
+    &lt;slide-deck&gt;
+      &lt;slide-card heading="Card Heading"&gt;
+        &lt;div class="content"&gt;
+          Some content goes here
+          <span hidden>&lt;h3 <span class="red">hidden</span>&gt;Some Point&lt;/h3&gt;</span>
+        &lt;/div&gt;
+        &lt;div class="presenter-content"&gt;
+          Private Notes
+        &lt;/div&gt;
+      &lt;/slide-card&gt;
+    &lt;/slide-deck&gt;
+                    </pre>
                 </div>
             </slide-card>
         </div>

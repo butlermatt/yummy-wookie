@@ -41,33 +41,8 @@ class SlideDeck extends PolymerElement {
 
   @reflectable
   void cardTapped(int card, int tapNum) {
-    switch(card) {
-      case 4:
-        benefitTap(tapNum);
-        break;
-      default:
-        break;
-    }
+    var el = Polymer.dom(cardList[card]).querySelector('[hidden]');
+    el.hidden = false;
   }
 
-  @reflectable
-  void benefitTap(int tapNum) {
-    var ul = Polymer.dom(cardList[page]).querySelector('#benList');
-    if (ul == null) return;
-
-    ++benNum;
-    var text = '';
-    switch (benNum) {
-      case 1:
-        text = 'Greater Participation';
-        break;
-      case 2:
-        text = 'Greater Customization';
-        break;
-      default: return;
-    }
-    var li = new LIElement();
-    li.text = text;
-    ul.append(li);
-  }
 }
