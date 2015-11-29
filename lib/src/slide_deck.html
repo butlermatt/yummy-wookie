@@ -27,6 +27,20 @@
                 font-family: "Roboto Mono";
             }
 
+            paper-fab {
+                --paper-fab-background: var(--paper-red-500);
+                @apply(--layout-self-center);
+                margin: 10px;
+            }
+
+            paper-fab#backExample {
+                --paper-fab-background: var(--paper-grey-500);
+            }
+
+            #presenterExample {
+                background-color: var(--google-grey-300);
+            }
+
         </style>
         <div id="cards" class="layout vertical flex center">
             <slide-card heading="Welcome" hidden presenter="{{presenter}}">
@@ -108,10 +122,13 @@
         &lt;div class="content"&gt;
           Some content goes here
           <span hidden>&lt;h3 <span class="red">hidden</span>&gt;Some Point&lt;/h3&gt;</span>
+          <span hidden>&lt;h3 hidden&gt;Another Point&lt;/h3&gt;</span>
         &lt;/div&gt;</span><span hidden>
         &lt;div class="presenter-content"&gt;
           Private Notes
         &lt;/div&gt;</span>
+      &lt;/slide-card&gt;
+      &lt;slide-card heading="Card Two"&gt;
       &lt;/slide-card&gt;</span>
     &lt;/slide-deck&gt;
                     </pre>
@@ -126,9 +143,33 @@
                     </ul>
                 </div>
             </slide-card>
+            <slide-card heading="Presenter" presenter="{{presenter}}" hidden>
+                <div class="content layout vertical around-justified">
+                    <h3 class="self-center">Simple Navigation</h3>
+                    <div class="flex layout horizontal around-justified" hidden>
+                        <paper-fab icon="arrow-back" id="backExample"></paper-fab>
+                        <paper-card heading="Some Card" class="flex layout vertical">
+                            <div style="margin:10px">
+                                Some Content Here
+                            </div>
+                            <div id="presenterExample">
+                                Some presenter notes
+                            </div>
+                        </paper-card>
+                        <paper-fab icon="arrow-forward"></paper-fab>
+                    </div>
+                </div>
+            </slide-card>
             <slide-card heading="Thank You!" presenter="{{presenter}}" hidden>
                 <div class="content layout vertical center">
                     <img src="/yummy-wookie/img/trophy.jpg">
+                </div>
+            </slide-card>
+            <slide-card heading="Further Content" presenter="{{presenter}}" hidden>
+                <div class="content layout vertical center">
+                    <h3 hidden>Transitions</h3>
+                    <h3 hidden>Online Slidedeck creation</h3>
+                    <h3 hidden>Profit!</h3>
                 </div>
             </slide-card>
         </div>
