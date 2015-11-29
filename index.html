@@ -2,7 +2,7 @@
     <meta lang="en">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yummy Wookie</title>
-    <script defer="" src="packages/web_components/webcomponents-lite.min.js"></script>
+    <script src="packages/web_components/webcomponents-lite.min.js"></script>
     
     
     
@@ -9829,12 +9829,28 @@ Custom property | Description | Default
             .red {
                 color: var(--paper-red-500);
             }
+
+            .large {
+                font-size: 16pt;
+            }
+
+            pre {
+                font-family: "Roboto Mono";
+            }
+
+            .bgimg {
+                background-image: url(/img/trophy.jpg);
+            }
+
         </style>
         <div id="cards" class="layout vertical flex center">
             <slide-card heading="Welcome" hidden="" presenter="{{presenter}}">
-                <div class="content layout horizontal around-justified">
-                    <div class="self-center">Please Visit:</div>
-                    <h2>http://butlermatt.github.io/yummy-wookie</h2>
+                <div class="content layout vertical around-justified wrap">
+                    <div class="layout horizontal around-justified wrap">
+                        <div class="self-center">Please Visit:</div>
+                        <h2>http://butlermatt.github.io/yummy-wookie</h2>
+                    </div>
+                    <img src="https://zxing.org/w/chart?cht=qr&amp;chs=350x350&amp;chld=L&amp;choe=UTF-8&amp;chl=http%3A%2F%2Fbutlermatt.github.io%2Fyummy-wookie" height="350" width="350" class="self-center">
                 </div>
                 <div class="presenter-content">
                     <ul>
@@ -9858,6 +9874,15 @@ Custom property | Description | Default
             <slide-card heading="The Problem" hidden="" presenter="{{presenter}}">
                 <div class="content layout vertical center">
                     <h1 class="red">Slides Suck!</h1>
+                    <h2 class="red" hidden="">Projectors Suck</h2>
+
+                </div>
+                <div class="presenter-content">
+                    Tap this card.
+                    <ul>
+                        <li>Hard to see during large talks</li>
+                        <li>Viewing from a live stream</li>
+                    </ul>
                 </div>
             </slide-card>
 
@@ -9865,15 +9890,58 @@ Custom property | Description | Default
                 <div class="content layout vertical center red">
                     <h1>Yummy Wookie</h1>
                     <h3>(Working Title)</h3>
+                    <h4 id="blame" hidden="">Blame Github</h4>
+                </div>
+                <div class="presenter-content">
+                    Tap this card
+                    <ul>
+                        <li>Mention Github suggested the name</li>
+                    </ul>
                 </div>
             </slide-card>
 
             <slide-card heading="Benefits" hidden="" presenter="{{presenter}}">
                 <div class="content layout vertical center">
-                    <ul id="benList"></ul>
+                    <h2>What does Yummy Wookie enable?</h2>
+                    <ul id="benList">
+                        <li hidden="">Greater Participation</li>
+                        <li hidden="">Greater Customization</li>
+                    </ul>
                 </div>
                 <div class="presenter-content">
                     Tap this card
+                </div>
+            </slide-card>
+
+            <slide-card heading="Usage" hidden="" presenter="{{presenter}}">
+                <div class="content layout vertical center">
+                    <h2>So what does it look like?</h2>
+                    <pre id="sample" class="large flex self-start" hidden="">    &lt;slide-deck&gt;
+      <span hidden="">&lt;slide-card heading="Card Heading"&gt;<span hidden="">
+        &lt;div class="content"&gt;
+          Some content goes here
+          <span hidden="">&lt;h3 <span class="red">hidden</span>&gt;Some Point&lt;/h3&gt;</span>
+        &lt;/div&gt;</span><span hidden="">
+        &lt;div class="presenter-content"&gt;
+          Private Notes
+        &lt;/div&gt;</span>
+      &lt;/slide-card&gt;</span>
+    &lt;/slide-deck&gt;
+                    </pre>
+                </div>
+                <div class="presenter-content">
+                    <ul>
+                        <li>slide-deck</li>
+                        <li>slide-card</li>
+                        <li>content</li>
+                        <li>Hidden content</li>
+                        <li>Presenter notes</li>
+                    </ul>
+                </div>
+            </slide-card>
+            <slide-card heading="Solution" presenter="{{presenter}}" hidden="">
+                <div class="content bgimg">
+                    <img src="/img/trophy.jpg">
                 </div>
             </slide-card>
         </div>
@@ -9894,6 +9962,9 @@ Custom property | Description | Default
 
 </div>
 <style>
+    body {
+        font-family: Roboto;
+    }
     main-app {
         height: 100%;
     }
