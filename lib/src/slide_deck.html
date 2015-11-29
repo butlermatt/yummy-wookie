@@ -20,7 +20,7 @@
             }
 
             .large {
-                font-size: 18pt;
+                font-size: 16pt;
             }
 
             pre {
@@ -60,6 +60,15 @@
             <slide-card heading="The Problem" hidden presenter="{{presenter}}">
                 <div class="content layout vertical center">
                     <h1 class="red">Slides Suck!</h1>
+                    <h2 class="red" hidden>Projectors Suck</h2>
+
+                </div>
+                <div class="presenter-content">
+                    Tap this card.
+                    <ul>
+                        <li>Hard to see during large talks</li>
+                        <li>Viewing from a live stream</li>
+                    </ul>
                 </div>
             </slide-card>
 
@@ -95,17 +104,26 @@
                     <h2>So what does it look like?</h2>
                     <pre id="sample" class="large flex self-start" hidden>
     &lt;slide-deck&gt;
-      &lt;slide-card heading="Card Heading"&gt;
+      <span hidden>&lt;slide-card heading="Card Heading"&gt;<span hidden>
         &lt;div class="content"&gt;
           Some content goes here
           <span hidden>&lt;h3 <span class="red">hidden</span>&gt;Some Point&lt;/h3&gt;</span>
-        &lt;/div&gt;
+        &lt;/div&gt;</span><span hidden>
         &lt;div class="presenter-content"&gt;
           Private Notes
-        &lt;/div&gt;
-      &lt;/slide-card&gt;
+        &lt;/div&gt;</span>
+      &lt;/slide-card&gt;</span>
     &lt;/slide-deck&gt;
                     </pre>
+                </div>
+                <div class="presenter-content">
+                    <ul>
+                        <li>slide-deck</li>
+                        <li>slide-card</li>
+                        <li>content</li>
+                        <li>Hidden content</li>
+                        <li>Presenter notes</li>
+                    </ul>
                 </div>
             </slide-card>
         </div>
