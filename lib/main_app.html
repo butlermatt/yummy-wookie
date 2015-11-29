@@ -2,7 +2,8 @@
     <template>
         <paper-header-panel class="flex">
             <paper-toolbar>
-                <div>Yummy Wookie</div>
+                <div class="title">Yummy Wookie</div>
+                <paper-fab mini id="pause" icon="av:pause" on-tap="onPaused"></paper-fab>
             </paper-toolbar>
             <slide-deck class="fit" id="deck">
             </slide-deck>
