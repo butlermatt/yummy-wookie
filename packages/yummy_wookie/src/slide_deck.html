@@ -41,6 +41,17 @@
                 background-color: var(--google-grey-300);
             }
 
+            #pauseExample {
+                --paper-fab-background: var(--paper-red-500);
+            }
+
+            #next {
+                list-style: none;
+            }
+
+            #next > li {
+                font-size: 16pt;
+            }
         </style>
         <div id="cards" class="layout vertical flex center">
             <slide-card heading="Welcome" hidden presenter="{{presenter}}">
@@ -160,16 +171,29 @@
                     </div>
                 </div>
             </slide-card>
+            <slide-card heading="Viewer" presenter="{{presenter}}" hidden>
+                <div class="content layout vertical center">
+                    <h3>Pause</h3>
+                    <paper-fab icon="av:pause" id="pauseExample"></paper-fab>
+                    <h3 hidden>Slide will resume at current location</h3>
+                </div>
+            </slide-card>
+
             <slide-card heading="Further Content" presenter="{{presenter}}" hidden>
                 <div class="content layout vertical center">
-                    <h3 hidden>Transitions</h3>
-                    <h3 hidden>Theming Options</h3>
-                    <h3 hidden>Online Slidedeck creation</h3>
-                    <h3 hidden>Profit!</h3>
+                    <h2>What next?</h2>
+                    <ul id="next" class="flex">
+                        <li hidden>Transitions</li>
+                        <li hidden>Theming Options</li>
+                        <li hidden>Online Slidedeck creation</li>
+                        <li hidden><strong>Profit!</strong></li>
+                    </ul>
                 </div>
             </slide-card>
             <slide-card heading="Questions" presenter="{{presenter}}" hidden>
+                <div class="content layout vertical center">
                 <h1>Q & A</h1>
+                </div>
             </slide-card>
             <slide-card heading="Thank You!" presenter="{{presenter}}" hidden>
                 <div class="content layout vertical center">

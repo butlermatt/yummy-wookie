@@ -1,8 +1,15 @@
 <dom-module id="main-app">
     <template>
+        <style is="custom-style">
+            #pause {
+                --paper-fab-background: var(--paper-red-500);
+            }
+
+        </style>
         <paper-header-panel class="flex">
             <paper-toolbar>
-                <div>Yummy Wookie</div>
+                <div class="title">Yummy Wookie</div>
+                <paper-fab mini id="pause" icon="av:pause" on-tap="onPaused"></paper-fab>
             </paper-toolbar>
             <slide-deck class="fit" id="deck">
             </slide-deck>
